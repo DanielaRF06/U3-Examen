@@ -64,8 +64,10 @@ const califGlobal = (req,res)=>{
         .then((data)=>{
             
                 res.status(status.OK);
-                let c = data.calif.reduce((ac,sg)=>ac+sg)/data.calif.length;
-                res.json({msg:"Calificaciones",calif:c});
+                let suma = data.calif.reduce((ac,sg)=>ac+sg);
+                let promedio= suma /data.calif.length;
+                
+                res.json({msg:"Calificaciones",promedio:promedio});
             
         })
         .catch((err)=>{
